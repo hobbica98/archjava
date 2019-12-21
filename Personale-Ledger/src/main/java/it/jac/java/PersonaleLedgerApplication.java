@@ -1,4 +1,4 @@
-package it.jac.java.it.jac.java;
+package it.jac.java;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
