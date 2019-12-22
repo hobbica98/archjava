@@ -18,7 +18,6 @@ public class Transaction {
 	private String causale;
 	
 	
-	
 	// Costruttore
 	public Transaction(int id, String username, Date data, float valore, String causale) {
 		super();
