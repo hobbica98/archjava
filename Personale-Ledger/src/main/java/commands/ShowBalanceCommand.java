@@ -1,4 +1,4 @@
-package it.jac.java.commands;
+package commands;
 
 /**
  * Classe per la visualizzazione di un bilancio attuale relativo a un singolo utente

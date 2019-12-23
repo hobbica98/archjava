@@ -1,4 +1,4 @@
-package it.jac.java.commands;
+package commands;
 
 /**
  * Classe per l'inserimento all'interno del database di una nuova transazione

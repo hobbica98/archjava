@@ -1,4 +1,4 @@
-package it.jac.java.commands;
+package commands;
 
 /**
  * Interfaccia per l'implementazione del Design Pattern Command 
