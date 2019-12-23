@@ -2,33 +2,40 @@ package entities;
 
 import java.sql.Date;
 
-import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(
     name = "Transactions"
 )
-public class Transaction {
+public class TransactionBean {
 	
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;	
 	
-	@Basic
-	private User username;
+	@ManyToOne
+    @JoinColumn(name="username")
+	private UserBean username;
 	
-	@Basic
+	@Column(name = "data")
 	private Date data;
 	
-	@Basic
+	@Column(name = "valore")
 	private float valore;
 	
-	@Basic
+	@Column(name = "casuale")
 	private String causale;
 
-	public Transaction(int id, User username, Date data, float valore, String causale) {
+	public TransactionBean(int id, UserBean username, Date data, float valore, String causale) {
 		this.id = id;
 		this.username = username;
 		this.data = data;
@@ -36,7 +43,7 @@ public class Transaction {
 		this.causale = causale;
 	}
 	
-	public Transaction() {
+	public TransactionBean() {
 	}
 	
 	public int getId() {
@@ -47,11 +54,11 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public User getUsername() {
+	public UserBean getUsername() {
 		return username;
 	}
 
-	public void setUsername(User username) {
+	public void setUsername(UserBean username) {
 		this.username = username;
 	}
 

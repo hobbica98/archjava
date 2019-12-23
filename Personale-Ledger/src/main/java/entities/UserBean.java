@@ -1,25 +1,27 @@
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Basic;
 @Entity
 @Table(
     name = "Users"
 )
-public class User {
+public class UserBean {
 	@Id
+	@Column(name="username")
 	private String username;
-	@Basic
+	
+	@Column(name="password")
 	private String password;
 	
-	public User(String username, String password) {
+	public UserBean(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
 	
-	public User() {
+	public UserBean() {
 		
 	}
 	

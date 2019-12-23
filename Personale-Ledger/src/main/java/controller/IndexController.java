@@ -6,17 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import services.TransactionServiceImpl;
-import services.UserServiceImpl;
+import services.TransactionService;
+import services.UserService;
 @Controller
 @RequestMapping("/")
 public class IndexController {
 	
     @Autowired
-    public TransactionServiceImpl transactionService;
-    public UserServiceImpl userService;
+    public TransactionService transactionService;
+    public UserService userService;
 
-    public IndexController(TransactionServiceImpl transactionService, UserServiceImpl userService) {
+    public IndexController(TransactionService transactionService, UserService userService) {
 		super();
 		this.transactionService = transactionService;
 		this.userService = userService;

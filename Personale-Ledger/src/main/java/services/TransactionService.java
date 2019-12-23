@@ -2,11 +2,33 @@ package services;
 
 import java.util.List;
 
-import entities.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public interface TransactionService {
-    public List<Transaction> SelTutti();
-    public Transaction SelById(String id);
-    public void InsTransaction(Transaction transaction);
-    public void DelTransaction(Transaction transaction);
+import entities.TransactionBean;
+import repository.TransactionRepo;
+
+public class TransactionService{
+
+    public TransactionService() {
+    }
+	public List<TransactionBean> SelTutti() {
+		return this.transRepo.findAll();
+	}
+
+	public TransactionBean SelById(String id) {
+		// TODO Auto-generated method stub
+		return this.transRepo.findById(id);
+	}
+	
+	public void InsTransaction(TransactionBean transaction) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void DelTransaction(TransactionBean transaction) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }
