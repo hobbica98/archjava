@@ -10,8 +10,7 @@ import entities.UserBean;
 import util.HibernateUtil;
 
 public class UserDao {
-public void InsUser(UserBean user) {
-		
+	public void InsUser(UserBean user) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
 			Transaction tx = session.beginTransaction();
@@ -25,7 +24,7 @@ public void InsUser(UserBean user) {
 	public void DelUser(UserBean user) {
 		
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			
+		
 			Transaction tx = session.beginTransaction();
 			
 			session.delete(user);
@@ -43,6 +42,7 @@ public void InsUser(UserBean user) {
 
 	public List<UserBean> findAll() {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			
 			Query<UserBean> query= session.createQuery("SELECT * FROM USERS", UserBean.class);
 			return query.list();
 		}

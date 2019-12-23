@@ -28,15 +28,15 @@ public class ProvaServlet extends HttpServlet { /**
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    	UserBean u= userServ.SelByUsername("Liviu");
+    	List<UserBean> u= userServ.SelTutti();
 		response.setStatus(200);
 		response.setContentType("text/HTML");
     	PrintWriter writer = response.getWriter();
         
         // build HTML code
         String htmlRespone = "<html>";
-        htmlRespone += "<h2>Your username is: "+u.getUsername() + "<br/>";      
-        htmlRespone += "Your password is: " + u.getPassword() + "</h2>";    
+        htmlRespone += "<h2>Your username is: "+u.get(0).getUsername() + "<br/>";      
+        htmlRespone += "Your password is: " + u.get(0).getPassword() + "</h2>";    
         htmlRespone += "</html>";
          
         // return response
