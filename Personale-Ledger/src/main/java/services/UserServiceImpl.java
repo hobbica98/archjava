@@ -2,28 +2,36 @@ package services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import entities.User;
+import repository.UserRepo;
 
 public class UserServiceImpl implements  UserService{
 
+	@Autowired
+    public UserRepo userRepo;
+
+    public UserServiceImpl(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 	@Override
 	public List<User> SelTutti() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.userRepo.findAll();
 	}
 
 	@Override
-	public User SelById(String id) {
+	public User SelByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.userRepo.findByUsername(username);
 	}
 
 	@Override
 	public void InsUser(User user) {
-		// TODO Auto-generated method stub
+	
 		
 	}
-
+	
 	@Override
 	public void DelUser(User user) {
 		// TODO Auto-generated method stub
