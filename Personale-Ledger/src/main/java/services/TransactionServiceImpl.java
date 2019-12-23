@@ -24,15 +24,17 @@ public class TransactionServiceImpl implements TransactionService{
 		// TODO Auto-generated method stub
 		return this.transRepo.findById(id);
 	}
-
+	
+    //INSERT
 	@Override
-	public void InsUser(Transaction transaction) {
+	public void InsTransaction(Transaction transaction) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	//DELETE
 	@Override
-	public void DelUser(Transaction transaction) {
+	public void DelTransaction(Transaction transaction) {
 		// TODO Auto-generated method stub
 		
 	}
