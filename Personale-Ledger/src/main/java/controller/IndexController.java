@@ -1,22 +1,22 @@
 package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import services.TransactionServiceImpl;
 import services.UserServiceImpl;
-
 @Controller
 @RequestMapping("/")
-public class Controller {
+public class IndexController {
 	
     @Autowired
     public TransactionServiceImpl transactionService;
     public UserServiceImpl userService;
 
-    public Controller(TransactionServiceImpl transactionService, UserServiceImpl userService) {
+    public IndexController(TransactionServiceImpl transactionService, UserServiceImpl userService) {
 		super();
 		this.transactionService = transactionService;
 		this.userService = userService;
