@@ -23,7 +23,7 @@ public class TransactionDao {
 			}
 		}
 		
-		public void DelUser(TransactionBean trans) {
+		public void DelTransaction(TransactionBean trans) {
 			
 			try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 				
@@ -35,7 +35,7 @@ public class TransactionDao {
 			}
 		}
 	
-		public TransactionBean findById(String id) {
+		public TransactionBean findById(int id) {
 			try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 				
 				return session.get(TransactionBean.class, id);
@@ -44,7 +44,7 @@ public class TransactionDao {
 	
 		public List<TransactionBean> findAll() {
 			try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-				Query<TransactionBean> query= session.createQuery("SELECT * FROM TRANSACTIONS", TransactionBean.class);
+				Query<TransactionBean> query= session.createQuery("SELECT TRANSACTIONS FROM TRANSACTIONS", TransactionBean.class);
 				return query.list();
 			}
 		}

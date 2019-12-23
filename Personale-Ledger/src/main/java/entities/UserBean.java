@@ -5,15 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(
-    name = "Users"
-)
+@Table(name = "Users")
 public class UserBean {
 	@Id
-	@Column(name="username")
+	@Column(name="username", length = 16, nullable = false)
 	private String username;
 	
-	@Column(name="password")
+	@Column(name="password", length = 20, nullable = false)
 	private String password;
 	
 	public UserBean(String username, String password) {

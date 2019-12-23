@@ -2,31 +2,29 @@ package services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
+import dao.TransactionDao;
 import entities.TransactionBean;
-import repository.TransactionRepo;
 
 public class TransactionService{
 
-    public TransactionService() {
-    }
+	TransactionDao transDao = new TransactionDao();
+	
 	public List<TransactionBean> SelTutti() {
-		return this.transRepo.findAll();
+		return this.transDao.findAll();
 	}
 
-	public TransactionBean SelById(String id) {
+	public TransactionBean SelById(int id) {
 		// TODO Auto-generated method stub
-		return this.transRepo.findById(id);
+		return this.transDao.findById(id);
 	}
 	
-	public void InsTransaction(TransactionBean transaction) {
-		// TODO Auto-generated method stub
+	public void InsTransaction(TransactionBean trans) {
+		this.transDao.InsTransaction(trans);
 		
 	}
 	
-	public void DelTransaction(TransactionBean transaction) {
-		// TODO Auto-generated method stub
+	public void DelTransaction(TransactionBean trans) {
+		this.transDao.DelTransaction(trans);
 		
 	}
 	
