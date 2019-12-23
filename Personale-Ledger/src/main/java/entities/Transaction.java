@@ -16,7 +16,7 @@ public class Transaction {
 	@Id
 	private int id;
 	
-	@Id
+	@Basic
 	private User username;
 	
 	@Basic
@@ -29,15 +29,16 @@ public class Transaction {
 	private String causale;
 
 	public Transaction(int id, User username, Date data, float valore, String causale) {
-		super();
 		this.id = id;
 		this.username = username;
 		this.data = data;
 		this.valore = valore;
 		this.causale = causale;
 	}
+	
 	public Transaction() {
 	}
+	
 	public int getId() {
 		return id;
 	}
