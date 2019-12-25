@@ -28,5 +28,9 @@ public class TransactionService{
 		
 	}
 	
-
+	/*
+	public float getBilancioByUsername(String username) {
+		return this.transDao.getBilancioByUsername(username);
+	}
+	*/
 }

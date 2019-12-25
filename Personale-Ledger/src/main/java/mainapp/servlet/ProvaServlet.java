@@ -26,7 +26,7 @@ public class ProvaServlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
     	TransactionBean u= transServ.SelById(1);
 		response.setStatus(200);
 		response.setContentType("text/HTML");
