@@ -28,7 +28,7 @@ public class ProvaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean u2 = userServ.SelByUsername("Liviu");
 		//transServ.SelTutti();
-    	//TransactionBean t= transServ.SelById(1);
+    	TransactionBean t= transServ.SelById(1);
     	//t.getId();
 		//UserBean u = new UserBean();
 		//u.setUsername("paolo2");
@@ -41,7 +41,8 @@ public class ProvaServlet extends HttpServlet {
         // build HTML code
         String htmlRespone = "<html>";
         htmlRespone += "<h2>Your username is: "+u2.getUsername() + "<br/>";      
-        htmlRespone += "Your password is: "  + "</h2>";    
+        htmlRespone += "<h2>Your username from transaction is: "+ t.getUsername().getUsername() + "<br/>";     
+        htmlRespone += "Your password is: "  + u2.getPassword() + "</h2>";    
         htmlRespone += "</html>";
          
         // return response

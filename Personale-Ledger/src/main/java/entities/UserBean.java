@@ -21,15 +21,6 @@ public class UserBean implements Serializable{
 	@Column(name="password", length = 20, nullable = false)
 	private String password;
 	
-	public UserBean(String username, String password) {
-		this.username = username;
-		this.password = password;
-	}
-	
-	public UserBean() {
-		
-	}
-	
 	public String getUsername() {
 		return username;
 	}
@@ -44,6 +35,15 @@ public class UserBean implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		String pwd = "";
+		for(int i = 0; i<password.length(); i++) {
+			pwd.concat("*");
+		}
+		return "Utente  [Username = "+username+", password: "+pwd+"]";
 	}
 	
 }

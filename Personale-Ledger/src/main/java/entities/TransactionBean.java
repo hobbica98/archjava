@@ -27,31 +27,20 @@ public class TransactionBean implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;	
+
+	@Column(name = "causale", length = 255)
+	private String causale;
+	
+	@Column(name = "data")
+	private Date data;
+
+	@Column(name = "valore")
+	private float valore;
 	
 	@ManyToOne
     @JoinColumn(name="username")
 	private UserBean username;
-	
-	@Column(name = "data")
-	private Date data;
-	
-	@Column(name = "valore")
-	private float valore;
-	
-	@Column(name = "casuale")
-	private String causale;
 
-	public TransactionBean(int id, UserBean username, Date data, float valore, String causale) {
-		this.id = id;
-		this.username = username;
-		this.data = data;
-		this.valore = valore;
-		this.causale = causale;
-	}
-	
-	public TransactionBean() {
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -91,4 +80,10 @@ public class TransactionBean implements Serializable {
 	public void setCausale(String causale) {
 		this.causale = causale;
 	}
+	
+	@Override
+	public String toString() {
+		return "Transazione [id = "+id+", Username = "+username+", Data = "+ data.toString()+", Valore = "+valore+", Causale = "+causale+"]";
+	}
+	
 }

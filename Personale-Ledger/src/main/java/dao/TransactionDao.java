@@ -34,7 +34,15 @@ public class TransactionDao {
 				tx.commit();
 			}
 		}
-	
+		/*
+		public float getBilancioByUsername(String username) {
+			try (Session session = HibernateUtil.getSessionFactory().openSession()){
+				Query<Float> query= session.createQuery("select sum(valore) from Transactions where username = '" + username + "'", Float.class);
+				return query.getSingleResult();
+			}
+		}
+		*/
+		
 		public TransactionBean findById(int id) {
 			try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 				
