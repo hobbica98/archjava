@@ -22,7 +22,7 @@ public class TransactionBean {
 	@Column(name = "id")
 	private int id;	
 
-	@Column(name = "causale")
+	@Column(name = "causale", length = 255)
 	private String causale;
 	
 	@Column(name = "data")
@@ -74,4 +74,10 @@ public class TransactionBean {
 	public void setCausale(String causale) {
 		this.causale = causale;
 	}
+	
+	@Override
+	public String toString() {
+		return "Transazione [id = "+id+", Username = "+username+", Data = "+ data.toString()+", Valore = "+valore+", Causale = "+causale+"]";
+	}
+	
 }
