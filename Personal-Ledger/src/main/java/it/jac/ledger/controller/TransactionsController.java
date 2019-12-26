@@ -28,7 +28,7 @@ public class TransactionsController {
     	
     	log.info("Ricevuta richiesta di mostrare tutte le transazioni");
     	
-    	List<TransactionBean> list = this.transactionService.SelTutti();
+    	List<TransactionBean> list = this.transactionService.selTutti();
     	log.debug("trovate " + list.size() + " transazioni");
     	
     	model.addAttribute("list", list);
