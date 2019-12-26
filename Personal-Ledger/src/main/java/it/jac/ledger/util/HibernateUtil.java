@@ -1,4 +1,4 @@
-package util;
+package it.jac.ledger.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

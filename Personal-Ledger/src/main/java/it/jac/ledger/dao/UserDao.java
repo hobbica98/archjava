@@ -1,13 +1,14 @@
-package dao;
+package it.jac.ledger.dao;
 
 import java.util.List;
 
 import org.hibernate.query.Query;
+
+import it.jac.ledger.entities.UserBean;
+import it.jac.ledger.util.HibernateUtil;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import entities.UserBean;
-import util.HibernateUtil;
 
 public class UserDao {
 	public void InsUser(UserBean user) {

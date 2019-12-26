@@ -1,4 +1,4 @@
-package controller;
+package it.jac.ledger.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,10 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import services.TransactionService;
-import services.UserService;
-@Controller
-@RequestMapping("/")
+import it.jac.ledger.services.TransactionService;
+import it.jac.ledger.services.UserService;
+//@Controller
+//@RequestMapping("/")
 public class IndexController {
 	
     @Autowired

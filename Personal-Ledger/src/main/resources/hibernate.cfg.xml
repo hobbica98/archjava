@@ -26,7 +26,7 @@
 		<property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
 		<!-- mapping entita' -->
-		<mapping class="entities.UserBean" />
-		<mapping class="entities.TransactionBean" />
+		<mapping class="it.jac.ledger.entities.UserBean" />
+		<mapping class="it.jac.ledger.entities.TransactionBean" />
 	</session-factory>
 </hibernate-configuration>

@@ -1,4 +1,4 @@
-package entities;
+package it.jac.ledger.entities;
 
 import java.io.Serializable;
 

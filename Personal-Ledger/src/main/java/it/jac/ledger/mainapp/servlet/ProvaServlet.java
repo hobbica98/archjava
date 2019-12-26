@@ -1,4 +1,4 @@
-package mainapp.servlet;
+package it.jac.ledger.mainapp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.TransactionBean;
-import entities.UserBean;
-import services.TransactionService;
-import services.UserService;
+import it.jac.ledger.entities.TransactionBean;
+import it.jac.ledger.entities.UserBean;
+import it.jac.ledger.services.TransactionService;
+import it.jac.ledger.services.UserService;
 
 @WebServlet(urlPatterns="/prova/*", loadOnStartup=1)
 public class ProvaServlet extends HttpServlet { 

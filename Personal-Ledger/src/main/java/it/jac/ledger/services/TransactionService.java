@@ -1,13 +1,20 @@
-package services;
+package it.jac.ledger.services;
 
 import java.util.List;
 
-import dao.TransactionDao;
-import entities.TransactionBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import it.jac.ledger.dao.TransactionDao;
+import it.jac.ledger.entities.TransactionBean;
+
+@Component
 public class TransactionService{
 
-	TransactionDao transDao = new TransactionDao();
+	// come nel controller gestisco la dipendenza con l'annotazione
+	// non serve fare la new della classe, ci pensa Spring
+	@Autowired
+	private TransactionDao transDao;
 	
 	public List<TransactionBean> SelTutti() {
 		return this.transDao.findAll();

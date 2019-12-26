@@ -1,10 +1,11 @@
-package mainapp;
+package it.jac.ledger.mainapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.ComponentScan;
+
 @SpringBootApplication
-@ServletComponentScan
+@ComponentScan(basePackages = "it.jac.ledger")
 public class PersonaleLedgerApplication {
 
 	public static void main(String[] args) {
