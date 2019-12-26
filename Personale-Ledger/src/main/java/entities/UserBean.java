@@ -1,13 +1,20 @@
 package entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-@Entity
+@Entity(name="Users")
 @Table(name = "Users")
-public class UserBean {
-	@Id
+public class UserBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6164782559637370968L;
+
+	@Id	
 	@Column(name="username", length = 16, nullable = false)
 	private String username;
 	

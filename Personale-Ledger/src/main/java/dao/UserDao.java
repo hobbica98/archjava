@@ -35,7 +35,6 @@ public class UserDao {
 
 	public UserBean findByUsername(String username) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			
 			return session.get(UserBean.class, username);
 		}
 	}
@@ -43,8 +42,7 @@ public class UserDao {
 	public List<UserBean> findAll() {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
-			Query<UserBean> query= session.createQuery("FROM Users", UserBean.class);
-			return query.getResultList();
+			return session.createQuery("FROM Users", UserBean.class).getResultList();
 		}
 	}
 }

@@ -44,7 +44,7 @@ public class TransactionDao {
 	
 		public List<TransactionBean> findAll() {
 			try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-				Query<TransactionBean> query= session.createQuery("SELECT TRANSACTIONS FROM TRANSACTIONS", TransactionBean.class);
+				Query<TransactionBean> query= session.createQuery("FROM TRANSACTIONS", TransactionBean.class);
 				return query.list();
 			}
 		}

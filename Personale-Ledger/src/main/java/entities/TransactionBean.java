@@ -1,5 +1,6 @@
 package entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -15,8 +16,13 @@ import javax.persistence.Table;
 @Table(
     name = "Transactions"
 )
-public class TransactionBean {
+public class TransactionBean implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2440628960312964544L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

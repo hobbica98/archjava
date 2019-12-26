@@ -11,7 +11,7 @@
 		<property name="connection.password">password</property>
 
 		<!-- Dialetto SQL del DB a cui ci colleghiamo -->
-		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="dialect">org.hibernate.dialect.MariaDB103Dialect</property>
 		<!-- Proprieta' che indica se stampare a console l'SQL generato -->
 		<property name="show_sql">true</property>
 
