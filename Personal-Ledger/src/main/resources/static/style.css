@@ -1,0 +1,63 @@
+html, body{
+	margin:0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+.content{
+background: rgb(81,45,168);
+background: linear-gradient(180deg, rgba(81,45,168,1) 0%, rgba(81,45,168,1) 49%, rgba(81,45,168,1) 68%, rgba(0,188,212,1) 100%);
+	width: 100%;
+	height: 100%;
+ 	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+}
+.centered-form{
+	margin: auto;
+	padding: 50px;
+	border-radius: 25px;
+	background: #fff;
+	width: 204px;
+    align-items: center;
+
+}
+input{
+	display: block;
+	margin: 10px 0;
+	width: 200px;
+	border-radius: 5px;
+	border-style: solid;	
+	border-color: #000;
+	padding: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+	border-width: 1px;
+}
+.centered-form .button{
+	display: inline-block;
+	width: 95px;
+	background: #00BCD4;
+	border-radius: 25px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	height: 25px;
+	padding: 0;
+	color:#fff;
+}
+.centered-form .left{
+	margin: 10px 7px 10px 0;
+	background: #388E3C;
+}
+.centered-form .right{
+	margin: 10px  0 10px 3px;
+	background: #D32F2F;
+}
