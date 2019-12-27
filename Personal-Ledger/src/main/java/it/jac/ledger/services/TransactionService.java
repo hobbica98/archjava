@@ -40,8 +40,8 @@ public class TransactionService{
 	public float getBilancioByUsername(String username) {
 		return this.transDao.getBilancioByUsername(username);
 	}
-	public List<TransactionBean> selByUsername(UserBean u){
-		return this.transDao.findByUsername(u.getUsername());
+	public List<TransactionBean> selByUsername(String username){
+		return this.transDao.findByUsername(username);
 	}
 	
 }

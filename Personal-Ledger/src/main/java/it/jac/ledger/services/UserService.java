@@ -2,11 +2,11 @@ package it.jac.ledger.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import it.jac.ledger.dao.UserDao;
 import it.jac.ledger.entities.UserBean;
-@Component
+@Service
 public class UserService {
 	UserDao userDao = new UserDao();
 

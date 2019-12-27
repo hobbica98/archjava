@@ -4,15 +4,21 @@ import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
+import it.jac.ledger.entities.UserBean;
+import it.jac.ledger.services.UserService;
+
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
- 
+	
+    public UserService userService =new UserService();
+	 
 	private static Logger log = LoggerFactory.getLogger(CustomAuthenticationProvider.class);
 	
     @Override
@@ -37,10 +43,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     }
  
     private boolean checkUsernamePassword(String username, String password) {
-    	
-		// TODO Implementare controllando validità username e password
-    	
-		return username.equalsIgnoreCase("test");
+    	UserBean u =this.userService.selByUsername(username);
+		if(u.getPassword().equals(password)) {
+			return true;
+		}else {
+			return false;
+		}
+ 
 	}
 
 	@Override

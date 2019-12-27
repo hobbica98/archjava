@@ -16,7 +16,7 @@ public class IndexController {
     @GetMapping(path = "index")
     public String getWelcomeIndex(Model model) {
         this.setModel(model);
-        return "index";
+        return "redirect:/transactions";
     }
 
     private Model setModel(Model model) {
