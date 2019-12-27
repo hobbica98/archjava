@@ -10,6 +10,11 @@ Scelta dei pattern utilizzati all'interno del progetto.
 ### Pattern Façade
 Consente l’utilizzo di una singola interfaccia per l’accesso a sottosistemi comprendenti interfacce complesse e diverse tra loro. Il **Pattern Façade** verrà applicato nel caso del _login_, tramite un’unica interfaccia che si occuperà di _connessione al DB, controllo credenziali, generazione cookie di sessione e caricamento dei dati_.
 
-### Pattern Command
+### ~~Pattern Command
 Permette di distaccare il codice che effettua un’azione dal codice che ne richiede l’esecuzione. 
-Abbiamo scelto il **Pattern Command** per rendere il codice più comprensibile e migliorarne la facilità d’uso. 
+Abbiamo scelto il **Pattern Command** per rendere il codice più comprensibile e migliorarne la facilità d’uso. ~~
+
+Durante lo sviluppo del progetto ci siamo accorti che l'utilizzo del Pattern Command non era ideale, e un'implementazione forzata avrebbe solamente portato all'aggiunta di codice e complicazioni inutili.
+
+### Data Access Object (DAO) Pattern
+Dato l'utilizzo di Hibernate per la comunicazione con il database contenente i dati relativi alle transazioni di ogni utente, abbiamo scelto il DAO Pattern per separare la comunicazione con il database tramite linguaggio per Query dal codice java, tramite l'utilizzo dell'API delle classi TransactionDAO e UserDAO.
