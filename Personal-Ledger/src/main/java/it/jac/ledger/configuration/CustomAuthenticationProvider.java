@@ -1,4 +1,4 @@
-package it.liviu.ledger.configuration;
+package it.jac.ledger.configuration;
 
 import java.util.ArrayList;
 
