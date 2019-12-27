@@ -2,6 +2,8 @@ package it.jac.ledger.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import it.jac.ledger.dao.UserDao;
 import it.jac.ledger.entities.UserBean;
 @Component
