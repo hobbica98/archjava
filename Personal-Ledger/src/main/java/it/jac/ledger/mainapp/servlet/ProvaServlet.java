@@ -26,9 +26,9 @@ public class ProvaServlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserBean u2 = userServ.SelByUsername("Liviu");
+		UserBean u2 = userServ.selByUsername("Liviu");
 		//transServ.SelTutti();
-    	TransactionBean t= transServ.SelById(1);
+    	TransactionBean t= transServ.selById(1);
     	//t.getId();
 		//UserBean u = new UserBean();
 		//u.setUsername("paolo2");

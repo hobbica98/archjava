@@ -35,7 +35,7 @@ public class IndexController {
     }
 
     private Model setModel(Model model) {
-    	model.addAttribute("username", userService.SelByUsername("Liviu"));
+    	model.addAttribute("username", userService.selByUsername("Liviu"));
         return model;
     }
 }

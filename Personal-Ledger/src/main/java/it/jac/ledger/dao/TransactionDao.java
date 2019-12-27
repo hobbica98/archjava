@@ -16,7 +16,7 @@ public class TransactionDao {
 	// Armando: i metodi in Java iniziano con il carattere minuscolo
 	// es. insTransaction..
 	
-	public void InsTransaction(TransactionBean trans) {
+	public void insTransaction(TransactionBean trans) {
 
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
@@ -28,7 +28,7 @@ public class TransactionDao {
 		}
 	}
 
-	public void DelTransaction(TransactionBean trans) {
+	public void delTransaction(TransactionBean trans) {
 
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
@@ -40,12 +40,12 @@ public class TransactionDao {
 		}
 	}
 
-//		public float getBilancioByUsername(String username) {
-//			try (Session session = HibernateUtil.getSessionFactory().openSession()){
-//				Query<Float> query= session.createQuery("select sum(valore) from Transactions where username = '" + username + "'", Float.class);
-//				return query.getSingleResult();
-//			}
-//		}
+	public float getBilancioByUsername(String username) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()){
+				Query<Float> query= session.createQuery("select sum(valore) from Transactions where username = '" + username + "'", Float.class);
+			return query.getSingleResult();
+			}
+	}
 
 	public TransactionBean findById(int id) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {

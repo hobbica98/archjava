@@ -16,28 +16,28 @@ public class TransactionService{
 	@Autowired
 	private TransactionDao transDao;
 	
-	public List<TransactionBean> SelTutti() {
+	public List<TransactionBean> selTutti() {
 		return this.transDao.findAll();
 	}
 
-	public TransactionBean SelById(int id) {
+	public TransactionBean selById(int id) {
 		// TODO Auto-generated method stub
 		return this.transDao.findById(id);
 	}
 	
-	public void InsTransaction(TransactionBean trans) {
-		this.transDao.InsTransaction(trans);
+	public void insTransaction(TransactionBean trans) {
+		this.transDao.insTransaction(trans);
 		
 	}
 	
-	public void DelTransaction(TransactionBean trans) {
-		this.transDao.DelTransaction(trans);
+	public void delTransaction(TransactionBean trans) {
+		this.transDao.delTransaction(trans);
 		
 	}
 	
-	/*
+	
 	public float getBilancioByUsername(String username) {
 		return this.transDao.getBilancioByUsername(username);
 	}
-	*/
+	
 }

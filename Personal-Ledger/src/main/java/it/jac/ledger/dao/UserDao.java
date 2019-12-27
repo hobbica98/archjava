@@ -11,7 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class UserDao {
-	public void InsUser(UserBean user) {
+	public void insUser(UserBean user) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
 			Transaction tx = session.beginTransaction();
@@ -22,7 +22,7 @@ public class UserDao {
 		}
 	}
 	
-	public void DelUser(UserBean user) {
+	public void delUser(UserBean user) {
 		
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 		

@@ -11,21 +11,21 @@ public class UserService {
 	public UserService() {
 	}
 
-	public List<UserBean> SelTutti() {
+	public List<UserBean> selTutti() {
 		return this.userDao.findAll();
 	}
 
-	public UserBean SelByUsername(String username) {
+	public UserBean selByUsername(String username) {
 		// TODO Auto-generated method stub
 		return this.userDao.findByUsername(username);
 	}
 
-	public void InsUser(UserBean user) {
-		this.userDao.InsUser(user);
+	public void insUser(UserBean user) {
+		this.userDao.insUser(user);
 	}
 
-	public void DelUser(UserBean user) {
-		this.userDao.DelUser(user);
+	public void delUser(UserBean user) {
+		this.userDao.delUser(user);
 	}
 
 }
