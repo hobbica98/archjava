@@ -4,7 +4,7 @@ import java.util.List;
 
 import it.jac.ledger.dao.UserDao;
 import it.jac.ledger.entities.UserBean;
-
+@Component
 public class UserService {
 	UserDao userDao = new UserDao();
 
