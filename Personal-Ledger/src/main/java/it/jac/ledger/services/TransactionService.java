@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import it.jac.ledger.dao.TransactionDao;
 import it.jac.ledger.entities.TransactionBean;
+import it.jac.ledger.entities.UserBean;
 
 @Component
 public class TransactionService{
@@ -38,6 +39,9 @@ public class TransactionService{
 	
 	public float getBilancioByUsername(String username) {
 		return this.transDao.getBilancioByUsername(username);
+	}
+	public List<TransactionBean> selByUsername(UserBean u){
+		return this.transDao.findByUsername(u.getUsername());
 	}
 	
 }

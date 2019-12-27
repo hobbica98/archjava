@@ -62,4 +62,12 @@ public class TransactionDao {
 			return query.list();
 		}
 	}
+	public List<TransactionBean> findByUsername(String username) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			
+			// armando: il nome riportato dopo il FROM fa riferimento all'entità
+			Query<TransactionBean> query = session.createQuery("FROM TransactionBean where username='" + username + "'", TransactionBean.class);
+			return query.list();
+		}
+	}
 }
