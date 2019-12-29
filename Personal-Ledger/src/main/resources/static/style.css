@@ -1,33 +1,101 @@
-html, body{
-	margin:0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
+@font-face {
+  font-family: Aardvark;
+  src: url(AARDC___.TTF );
 }
-.content{
-background: rgb(81,45,168);
-background: linear-gradient(180deg, rgba(81,45,168,1) 0%, rgba(81,45,168,1) 49%, rgba(81,45,168,1) 68%, rgba(0,188,212,1) 100%);
-	width: 100%;
+body{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 	height: 100%;
- 	display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-
-    align-items: center;
+	width: 100%;
+	font-family: Aardvark;
+	margin: 0 auto;
+	color:#fff;
+}
+html{height: 100%;}
+div{
+	height: 100%;
+	display: table; 
+	position: relative;
+	width: 100%;
+}
+h1{
+	font-size: 80px;
+	text-shadow:4px 3px #f02, 7px 6px #02f, 10px 9px #0f2;
+}
+.center {
+  margin: auto;
+  vertical-align: middle;	
+  display: table-cell; 
+  padding: 10px;
+  text-align: center;
+}
+.userbar{
+	 display: table-row; 
+	 height: 50px;
+	 text-align: right;
+	 margin: 20px;
+}
+.but{
+	 display: table-row; 
+	 height: 50%;
+}
+table{margin auto;}
+a.button3{
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    margin: 0 0.56em 0.5em 0;
+    border-radius: 25px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    background-color: #4eb5f1;
+    text-align: center;
+    box-shadow: 4px 3px rgb(75,75,255,0.9);
+    transition: all 0.2s;
+}
+a.button3:hover{
+background-color:#4095c6;
+}
+@media all and (max-width:30em){
+a.button3{
+display:block;
+margin:0.2em auto;
+}
+}
+.blur-image {
+  background-image: url(bg-min.jpg);
+  filter: none;
+  height: 100%;
+	width: 100%;
+  transition: -webkit-filter 0s 0.3s linear, filter 0s 0.3s linear;
 }
 .centered-form{
 	margin: auto;
 	padding: 50px;
 	border-radius: 25px;
-	background: #fff;
+	background: rgba(255,255,255,0.5);
 	width: 204px;
     align-items: center;
 
 }
+.image-loaded {
+  transition: opacity .25s linear;
+}
+
+.header-section, .full-image, .image-loaded {
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  -webkit-filter: none;
+}
+
 input{
 	display: block;
 	margin: 10px 0;

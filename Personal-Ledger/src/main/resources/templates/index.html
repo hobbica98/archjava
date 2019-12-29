@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Home</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Homepage</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-		<div class="content">
-			<div class="centered-form">
-				<h1>HomePage</h1>
+	<script type="text/javascript">
+		var a = document.getElementsByClassName('blur-image');
+
+		document.addEventListener("DOMContentLoaded", function() {
+		  var b = a[0].getAttribute("data-src");
+		      c = document.getElementsByClassName('full-image'),
+		      img = new Image;
+
+		  img.src = b;
+		  img.onload = function () {
+		    c[0].classList.add('image-loaded'),
+		    c[0].style.backgroundImage = 'url(' + b + ')';
+		  };
+		});
+	</script>
+</head>
+<body>
+<header class="header-section blur-image" data-src="bg.jpg">
+  <div class="full-image">
+   <div>
+   <div class="userbar">
+   <p style="FONT-WEIGHT: 200;margin: 5px 20px;font-size: 24px;" th:text="${username}"></p>
+   </div>
+		<div class="center">
+		<h1>Homepage</h1>
+		</div>
+		<div class="but">
+			<div class="center">
+				<a href="/transactions" class="button3 center">Transactions</a>
 			</div>
 		</div>
-	</body>
+	</div>
+  </div>
+</header>
+	
+
+</body>
 </html>

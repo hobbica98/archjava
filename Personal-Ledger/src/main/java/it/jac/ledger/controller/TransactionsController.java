@@ -42,32 +42,14 @@ public class TransactionsController implements IAuthenticationFacade {
 		System.out.println("****************************************************************************************************");
 		System.out.println(getAuthentication().getName());
     	List<TransactionBean> list = this.transactionService.selByUsername(getAuthentication().getName());
-    	TransactionBean t=new TransactionBean();
-    	t.setCausale("adasda");
-    	t.setData(new Date(1324567822));
-    	t.setValore(300);
-    	UserBean u= new UserBean();
-    	u.setUsername(getAuthentication().getName());
-    	t.setUsername(u);
-    	this.transactionService.insTransaction(t);
     	log.debug("trovate " + list.size() + " transazioni");
-    	
+
+    	model.addAttribute("username", getAuthentication().getName());
     	model.addAttribute("list", list);
     	
         return "transactions";
     }
 	
-	//FINZIONANTE
-	@PostMapping(path = "/loginServlet")
-	public RedirectView findAttributeLogin(UserBean user, Model model)
-	{
-		System.out.println("****************************************************************************************************");
-		System.out.println(user.getUsername());
-		
-		model.addAttribute("User", user);
-		
-		return new RedirectView("/transactions");
-	}
 	
 
 }
