@@ -11,7 +11,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class UserDao {
+	
 	public void insUser(UserBean user) {
+		
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
 			Transaction tx = session.beginTransaction();
@@ -35,12 +37,14 @@ public class UserDao {
 	}
 
 	public UserBean findByUsername(String username) {
+		
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			return session.get(UserBean.class, username);
 		}
 	}
 
 	public List<UserBean> findAll() {
+		
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
 			return session.createQuery("FROM Users", UserBean.class).getResultList();

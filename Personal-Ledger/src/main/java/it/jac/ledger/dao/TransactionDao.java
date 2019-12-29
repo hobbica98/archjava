@@ -12,9 +12,6 @@ import it.jac.ledger.util.HibernateUtil;
 
 @Component
 public class TransactionDao {
-
-	// Armando: i metodi in Java iniziano con il carattere minuscolo
-	// es. insTransaction..
 	
 	public void insTransaction(TransactionBean trans) {
 
@@ -39,12 +36,29 @@ public class TransactionDao {
 			tx.commit();
 		}
 	}
-
+	
+	// estrae il bilancio attuale per un username
 	public float getBilancioByUsername(String username) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()){
-				Query<Float> query= session.createQuery("select sum(valore) from Transactions where username = '" + username + "'", Float.class);
+			Query<Float> query= session.createQuery("select sum(valore) from TransactionBean where username = '" + username + "'", Float.class);	
 			return query.getSingleResult();
-			}
+		}
+	}
+	
+	// estrae la media delle transazioni deposito per un username
+	public float getAvgDeposit(String username) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()){
+			Query<Float> query= session.createQuery("select avg(valore) from Transactions where username = '" + username + "' and valore > 0", Float.class);
+			return query.getSingleResult();
+		}
+	}
+	
+	// estrae la media delle transazioni prelievo per un username
+	public float getAvgWithdrawal(String username) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()){
+			Query<Float> query= session.createQuery("select avg(valore) from Transactions where username = '" + username + "' and valore < 0", Float.class);
+			return query.getSingleResult();
+		}
 	}
 
 	public TransactionBean findById(int id) {
@@ -57,15 +71,16 @@ public class TransactionDao {
 	public List<TransactionBean> findAll() {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
-			// armando: il nome riportato dopo il FROM fa riferimento all'entità
+			// il nome riportato dopo il FROM fa riferimento all'entità
 			Query<TransactionBean> query = session.createQuery("FROM TransactionBean", TransactionBean.class);
 			return query.list();
 		}
 	}
+	
 	public List<TransactionBean> findByUsername(String username) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			
-			// armando: il nome riportato dopo il FROM fa riferimento all'entità
+			// il nome riportato dopo il FROM fa riferimento all'entità
 			Query<TransactionBean> query = session.createQuery("FROM TransactionBean where username='" + username + "'", TransactionBean.class);
 			return query.list();
 		}
