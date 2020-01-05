@@ -28,7 +28,7 @@
 			<h1>Login</h1>
 			<span th:if="${loginError}">Username o password errati</span>
 			<form class="centered-form" th:action="@{/login}" method="post">
-				<input type="text" name="username" placeholder="Userame">
+				<input type="text" name="username" placeholder="Username">
 				<input type="password" name="password" placeholder="Password">
 				<input type="submit" class="button left" name="login" value="Login">
 				<input type="submit" class="button right" name="register" value="Register">
