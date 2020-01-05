@@ -56,6 +56,22 @@ public class TransactionBean implements Serializable {
 	public void setUsername(UserBean username) {
 		this.username = username;
 	}
+	
+	// Set username tramite stringa user e password
+	public void setUsername(String username, String password) {
+		UserBean bean = new UserBean();
+		bean.setUsername(username);
+		bean.setPassword(password);
+		this.username = bean;
+	}
+	
+	// Set username tramite stringa user e default password
+		public void setUsername(String username) {
+			UserBean bean = new UserBean();
+			bean.setUsername(username);
+			bean.setPassword("defaultpw");
+			this.username = bean;
+		}
 
 	public Date getData() {
 		return data;
