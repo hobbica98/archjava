@@ -26,8 +26,8 @@
    <div>
 		<div class="center">
 			<h1>Login</h1>
-			<span th:if="${loginError}" style="color:#000000;">Username o password errati</span>
 			<form class="centered-form" th:action="@{/login}" method="post">
+			<span th:if="${loginError}" style="color:#000000;">Username o password errati</span>
 				<input type="text" name="username" placeholder="Username" REQUIRED>
 				<input type="password" name="password" placeholder="Password" REQUIRED>
 				<input type="submit" class="button left" name="login" value="Login">

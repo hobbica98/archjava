@@ -1,5 +1,7 @@
 package it.jac.ledger.controller;
 
+import javax.persistence.PersistenceException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,10 +26,16 @@ public class RegisterController {
                                         @RequestParam String username,
                                         @RequestParam String password) {
     	UserBean user =new UserBean();
-    	user.setUsername(username);
+    	user.setUsername(username.toLowerCase());
     	user.setPassword(password);
+    	try {
 		userService.insUser(user);
 	    return "redirect:/login";
+	    }catch (PersistenceException e) {
+			model.addAttribute("isUsed", true);
+			return "register";
+		}
+
 	}
 	
 }

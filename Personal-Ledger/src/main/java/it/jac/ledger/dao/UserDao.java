@@ -2,17 +2,17 @@ package it.jac.ledger.dao;
 
 import java.util.List;
 
-import org.hibernate.query.Query;
-
-import it.jac.ledger.entities.UserBean;
-import it.jac.ledger.util.HibernateUtil;
+import javax.persistence.PersistenceException;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import it.jac.ledger.entities.UserBean;
+import it.jac.ledger.util.HibernateUtil;
+
 public class UserDao {
 	
-	public void insUser(UserBean user) {
+	public void insUser(UserBean user) throws PersistenceException{
 		
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			

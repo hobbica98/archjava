@@ -43,7 +43,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     }
  
     private boolean checkUsernamePassword(String username, String password) {
-    	UserBean u =this.userService.selByUsername(username);
+    	UserBean u =this.userService.selByUsername(username.toLowerCase());
 		if(u.getPassword().equals(password)) {
 			return true;
 		}else {

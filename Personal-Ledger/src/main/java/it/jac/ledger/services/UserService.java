@@ -2,6 +2,8 @@ package it.jac.ledger.services;
 
 import java.util.List;
 
+import javax.persistence.PersistenceException;
+
 import org.springframework.stereotype.Service;
 
 import it.jac.ledger.dao.UserDao;
@@ -22,7 +24,7 @@ public class UserService {
 		return this.userDao.findByUsername(username);
 	}
 
-	public void insUser(UserBean user) {
+	public void insUser(UserBean user) throws PersistenceException {
 		this.userDao.insUser(user);
 	}
 
