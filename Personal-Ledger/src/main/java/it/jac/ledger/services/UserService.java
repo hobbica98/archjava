@@ -20,7 +20,6 @@ public class UserService {
 	}
 
 	public UserBean selByUsername(String username) {
-		// TODO Auto-generated method stub
 		return this.userDao.findByUsername(username);
 	}
 
