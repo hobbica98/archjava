@@ -10,8 +10,8 @@ Scelta dei pattern utilizzati all'interno del progetto.
 ### Pattern Façade
 Consente l’utilizzo di una singola interfaccia per l’accesso a sottosistemi comprendenti interfacce complesse e diverse tra loro. Il **Pattern Façade** verrà applicato nel caso del _login_, tramite un’unica interfaccia che si occuperà di _connessione al DB, controllo credenziali, generazione cookie di sessione e caricamento dei dati_.
 
-### ~~Pattern Command
-Permette di distaccare il codice che effettua un’azione dal codice che ne richiede l’esecuzione. 
+### ~~Pattern Command~~
+~~Permette di distaccare il codice che effettua un’azione dal codice che ne richiede l’esecuzione. 
 Abbiamo scelto il **Pattern Command** per rendere il codice più comprensibile e migliorarne la facilità d’uso. ~~
 
 Durante lo sviluppo del progetto ci siamo accorti che l'utilizzo del Pattern Command non era ideale, e un'implementazione forzata avrebbe solamente portato all'aggiunta di codice e complicazioni inutili.
