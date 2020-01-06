@@ -1,6 +1,7 @@
 package it.jac.ledger.controller;
 
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -43,9 +44,12 @@ public class TransactionsController implements IAuthenticationFacade {
 		System.out.println(getAuthentication().getName());
     	List<TransactionBean> list = this.transactionService.selByUsername(getAuthentication().getName());
     	log.debug("trovate " + list.size() + " transazioni");
-
+    	String bilancio = new DecimalFormat("##.##").format(this.transactionService.getBilancioByUsername(getAuthentication().getName()));
+    	log.debug("trovato bilancio = " + bilancio);
+    	
     	model.addAttribute("username", getAuthentication().getName());
     	model.addAttribute("list", list);
+    	model.addAttribute("balance", bilancio);
     	
         return "transactions";
     }

@@ -38,25 +38,25 @@ public class TransactionDao {
 	}
 	
 	// estrae il bilancio attuale per un username
-	public float getBilancioByUsername(String username) {
+	public double getBilancioByUsername(String username) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()){
-			Query<Float> query= session.createQuery("select sum(valore) from TransactionBean where username = '" + username + "'", Float.class);	
+			Query<Double> query= session.createQuery("select sum(valore) from TransactionBean where username = '" + username + "'", Double.class);	
 			return query.getSingleResult();
 		}
 	}
 	
 	// estrae la media delle transazioni deposito per un username
-	public float getAvgDeposit(String username) {
+	public double getAvgDeposit(String username) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()){
-			Query<Float> query= session.createQuery("select avg(valore) from Transactions where username = '" + username + "' and valore > 0", Float.class);
+			Query<Double> query= session.createQuery("select avg(valore) from Transactions where username = '" + username + "' and valore > 0", Double.class);
 			return query.getSingleResult();
 		}
 	}
 	
 	// estrae la media delle transazioni prelievo per un username
-	public float getAvgWithdrawal(String username) {
+	public double getAvgWithdrawal(String username) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()){
-			Query<Float> query= session.createQuery("select avg(valore) from Transactions where username = '" + username + "' and valore < 0", Float.class);
+			Query<Double> query= session.createQuery("select avg(valore) from Transactions where username = '" + username + "' and valore < 0", Double.class);
 			return query.getSingleResult();
 		}
 	}

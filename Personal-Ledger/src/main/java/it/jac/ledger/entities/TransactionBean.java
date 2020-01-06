@@ -13,11 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(
-    name = "Transactions"
-)
+@Table(name = "Transactions")
 public class TransactionBean implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -26,19 +24,19 @@ public class TransactionBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;	
+	private int id;
 
 	@Column(name = "causale", length = 255)
 	private String causale;
-	
+
 	@Column(name = "data")
 	private Date data;
 
 	@Column(name = "valore")
-	private float valore;
-	
+	private double valore;
+
 	@ManyToOne
-    @JoinColumn(name="username")
+	@JoinColumn(name = "username")
 	private UserBean username;
 
 	public int getId() {
@@ -56,7 +54,7 @@ public class TransactionBean implements Serializable {
 	public void setUsername(UserBean username) {
 		this.username = username;
 	}
-	
+
 	// Set username tramite stringa user e password
 	public void setUsername(String username, String password) {
 		UserBean bean = new UserBean();
@@ -64,14 +62,14 @@ public class TransactionBean implements Serializable {
 		bean.setPassword(password);
 		this.username = bean;
 	}
-	
+
 	// Set username tramite stringa user e default password
-		public void setUsername(String username) {
-			UserBean bean = new UserBean();
-			bean.setUsername(username);
-			bean.setPassword("defaultpw");
-			this.username = bean;
-		}
+	public void setUsername(String username) {
+		UserBean bean = new UserBean();
+		bean.setUsername(username);
+		bean.setPassword("defaultpw");
+		this.username = bean;
+	}
 
 	public Date getData() {
 		return data;
@@ -81,11 +79,11 @@ public class TransactionBean implements Serializable {
 		this.data = data;
 	}
 
-	public float getValore() {
+	public double getValore() {
 		return valore;
 	}
 
-	public void setValore(float valore) {
+	public void setValore(double valore) {
 		this.valore = valore;
 	}
 
@@ -96,10 +94,11 @@ public class TransactionBean implements Serializable {
 	public void setCausale(String causale) {
 		this.causale = causale;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Transazione [id = "+id+", Username = "+username+", Data = "+ data.toString()+", Valore = "+valore+", Causale = "+causale+"]";
+		return "Transazione [id = " + id + ", Username = " + username + ", Data = " + data.toString() + ", Valore = "
+				+ valore + ", Causale = " + causale + "]";
 	}
-	
+
 }
