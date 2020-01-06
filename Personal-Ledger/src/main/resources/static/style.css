@@ -131,3 +131,6 @@ input{
 }
 table{
 margin:auto;}
+.logout{
+	background-color: #D32F2F !important;
+}

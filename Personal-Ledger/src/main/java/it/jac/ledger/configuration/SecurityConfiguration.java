@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration  
 @EnableWebSecurity  
@@ -18,11 +19,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers( "/*.jpg").permitAll() 
             .antMatchers( "/register").permitAll()
             .anyRequest().authenticated()  
-            .and() 
+            .and()
             .formLogin()
             .loginPage("/login")
             .failureUrl("/login-error")  
-            .permitAll();  
+            .permitAll().and()
+            .logout()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).and().csrf().disable();
+            
     }
     
     @Override

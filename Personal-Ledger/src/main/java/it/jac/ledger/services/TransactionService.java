@@ -35,12 +35,23 @@ public class TransactionService{
 		
 	}
 	
+	public void delTransaction(int id) {
+		TransactionBean trans= new TransactionBean();
+		trans.setId(id);
+		this.transDao.delTransaction(trans);
+		
+	}
 	public double getBilancioByUsername(String username) {
 		return this.transDao.getBilancioByUsername(username);
 	}
 	
 	public List<TransactionBean> selByUsername(String username){
 		return this.transDao.findByUsername(username);
+	}
+
+	public void save(TransactionBean trans) {
+		this.transDao.save(trans);
+		
 	}
 	
 }

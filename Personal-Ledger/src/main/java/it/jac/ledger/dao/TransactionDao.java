@@ -85,4 +85,15 @@ public class TransactionDao {
 			return query.list();
 		}
 	}
+
+	public void save(TransactionBean trans) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+
+			Transaction tx = session.beginTransaction();
+
+			session.saveOrUpdate(trans);
+
+			tx.commit();
+		}
+	}
 }
