@@ -22,7 +22,6 @@ public class TransactionService{
 	}
 
 	public TransactionBean selById(int id) {
-		// TODO Auto-generated method stub
 		return this.transDao.findById(id);
 	}
 	
@@ -36,10 +35,10 @@ public class TransactionService{
 		
 	}
 	
-	
 	public float getBilancioByUsername(String username) {
 		return this.transDao.getBilancioByUsername(username);
 	}
+	
 	public List<TransactionBean> selByUsername(String username){
 		return this.transDao.findByUsername(username);
 	}

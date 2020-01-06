@@ -31,10 +31,16 @@
 		
 			<h1>Lista delle transazioni</h1>
 			<table border="1">
+			<tr>
+				<td th:text="Data"></td>
+				<td th:text="Valore"></td>
+				<td th:text="Causale"></td>
+			</tr>
 				<th:block th:each="transaction : ${list}">
 					<tr>
-						<td th:text="${transaction.causale}">...</td>
+						<td th:text="${transaction.data}">...</td>
 						<td th:text="${transaction.valore}">...</td>
+						<td th:text="${transaction.causale}">...</td>
 					</tr>
 				</th:block>
 			</table>
@@ -42,7 +48,6 @@
 	</div>
   </div>
 </header>
-	
 
 </body>
 </html>
