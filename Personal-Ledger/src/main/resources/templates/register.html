@@ -39,6 +39,7 @@
 		<div class="center">
 			<h1>Register</h1>
 			<form class="centered-form" th:action="@{/register}"  onSubmit="return checkPass();" method="post" name="register">
+			<span th:if="${isUsed}" style="color:#000000;">Username gia in uso</span>
 				<input type="text" name="username" placeholder="Username" REQUIRED>
 				<input type="password" name="password" placeholder="Password" REQUIRED>
 				<input type="password" name="passwordConf"  placeholder="Confirm Password" REQUIRED>
