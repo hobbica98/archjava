@@ -1,0 +1,136 @@
+@font-face {
+  font-family: Aardvark;
+  src: url(AARDC___.TTF );
+}
+body{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+	font-family: Aardvark;
+	margin: 0 auto;
+	color:#fff;
+}
+html{height: 100%;}
+div{
+	height: 100%;
+	display: table; 
+	position: relative;
+	width: 100%;
+}
+h1{
+	font-size: 80px;
+	text-shadow:4px 3px #f02, 7px 6px #02f, 10px 9px #0f2;
+}
+.center {
+  margin: auto;
+  vertical-align: middle;	
+  display: table-cell; 
+  padding: 10px;
+  text-align: center;
+}
+.userbar{
+	 display: table-row; 
+	 height: 50px;
+	 text-align: right;
+	 margin: 20px;
+}
+.but{
+	 display: table-row; 
+	 height: 50%;
+}
+table{margin auto;}
+a.button3{
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    margin: 0 0.56em 0.5em 0;
+    border-radius: 25px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    background-color: #4eb5f1;
+    text-align: center;
+    box-shadow: 4px 3px rgb(75,75,255,0.9);
+    transition: all 0.2s;
+}
+a.button3:hover{
+background-color:#4095c6;
+}
+@media all and (max-width:30em){
+a.button3{
+display:block;
+margin:0.2em auto;
+}
+}
+.blur-image {
+  background-image: url(bg-min.jpg);
+  filter: none;
+  height: 100%;
+	width: 100%;
+  transition: -webkit-filter 0s 0.3s linear, filter 0s 0.3s linear;
+}
+.centered-form{
+	margin: auto;
+	padding: 50px;
+	border-radius: 25px;
+	background: rgba(255,255,255,0.5);
+	width: 204px;
+    align-items: center;
+
+}
+.image-loaded {
+  transition: opacity .25s linear;
+}
+
+.header-section, .full-image, .image-loaded {
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  -webkit-filter: none;
+}
+
+input{
+	display: block;
+	margin: 10px 0;
+	width: 200px;
+	border-radius: 5px;
+	border-style: solid;	
+	border-color: #000;
+	padding: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+	border-width: 1px;
+}
+.centered-form .button{
+	display: inline-block;
+	width: 95px;
+	background: #00BCD4;
+	border-radius: 25px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	height: 25px;
+	padding: 0;
+	color:#fff;
+}
+.centered-form .left{
+	margin: 10px 7px 10px 0;
+	background: #388E3C;
+}
+.centered-form .right{
+	margin: 10px  0 10px 3px;
+	background: #D32F2F;
+}
+table{
+margin:auto;}
+.logout{
+	background-color: #D32F2F !important;
+}

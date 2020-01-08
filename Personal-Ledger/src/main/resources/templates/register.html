@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Register</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		var a = document.getElementsByClassName('blur-image');
+
+		document.addEventListener("DOMContentLoaded", function() {
+		  var b = a[0].getAttribute("data-src");
+		      c = document.getElementsByClassName('full-image'),
+		      img = new Image;
+
+		  img.src = b;
+		  img.onload = function () {
+		    c[0].classList.add('image-loaded'),
+		    c[0].style.backgroundImage = 'url(' + b + ')';
+		  };
+		});
+	</script>
+	<script type="text/javascript">
+		function checkPass(){
+			var pass= document.forms.register.password.value;
+			var passconf= document.forms.register.passwordConf.value;
+			if(pass==passconf){
+				return true;
+			}else{
+				alert("password doesn't match");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+<header class="header-section blur-image" data-src="bg.jpg">
+  <div class="full-image">
+   <div>
+		<div class="center">
+			<h1>Register</h1>
+			<form class="centered-form" th:action="@{/register}"  onSubmit="return checkPass();" method="post" name="register">
+			<span th:if="${isUsed}" style="color:#000000;">Username gia in uso</span>
+				<input type="text" name="username" placeholder="Username" REQUIRED>
+				<input type="password" name="password" placeholder="Password" REQUIRED>
+				<input type="password" name="passwordConf"  placeholder="Confirm Password" REQUIRED>
+				<input type="submit" class="button right" name="register" value="Register">
+			</form>
+		</div>
+	</div>
+  </div>
+</header>
+</body>
+</html>

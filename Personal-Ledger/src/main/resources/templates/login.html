@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		var a = document.getElementsByClassName('blur-image');
+
+		document.addEventListener("DOMContentLoaded", function() {
+		  var b = a[0].getAttribute("data-src");
+		      c = document.getElementsByClassName('full-image'),
+		      img = new Image;
+
+		  img.src = b;
+		  img.onload = function () {
+		    c[0].classList.add('image-loaded'),
+		    c[0].style.backgroundImage = 'url(' + b + ')';
+		  };
+		});
+	</script>
+</head>
+<body>
+<header class="header-section blur-image" data-src="bg.jpg">
+  <div class="full-image">
+   <div>
+		<div class="center">
+			<h1>Login</h1>
+			<form class="centered-form" th:action="@{/login}" method="post">
+			<span th:if="${loginError}" style="color:#000000;">Username o password errati</span>
+				<input type="text" name="username" placeholder="Username" REQUIRED>
+				<input type="password" name="password" placeholder="Password" REQUIRED>
+				<input type="submit" class="button left" name="login" value="Login">
+				<a href="/register"><input type="button" class="button right" name="register" value="Register"></a>
+			</form>
+		</div>
+	</div>
+  </div>
+</header>
+</body>
+</html>

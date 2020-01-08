@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Transactions</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		var a = document.getElementsByClassName('blur-image');
+
+		document.addEventListener("DOMContentLoaded", function() {
+		  var b = a[0].getAttribute("data-src");
+		      c = document.getElementsByClassName('full-image'),
+		      img = new Image;
+
+		  img.src = b;
+		  img.onload = function () {
+		    c[0].classList.add('image-loaded'),
+		    c[0].style.backgroundImage = 'url(' + b + ')';
+		  };
+		});
+	</script>
+	<script>
+	jQuery(document).ready(
+		    function($) {
+		        $('button[name="addItem"]').click(function(event) {
+		            event.preventDefault();
+		            var data = 'addItem=new';
+		            var target = $('tr[name="new"]');
+		            data += '&data=' + target.find('input[name="data"]').val();
+		            data += '&causale=' + target.find('input[name="causale"]').val();
+		            data += '&valore=' + target.find('input[name="valore"]').val();
+		            $.post('/transactions/add', data).done(function() {
+		                location.reload()
+		            });
+		        });
+		        $('button[name="addItem2"]').click(function(event) {
+		            event.preventDefault();
+					$(this).css("display", "none");
+					$('tr[name="new"]').css("display", "table-row");
+		        });
+		        $('button[name="removeItem"]').click(function(event) {
+		            event.preventDefault();
+		            var data = 'removeItem=' + $(this).val();
+		            $.post('/transactions', data).done(function() {
+		                location.reload()
+		            });
+		        });
+		        $('button[name="editItem"]').click(function(event) {
+		            event.preventDefault();
+		            var target = $('tr[name="' + $(this).val() + '"]');
+		            var data = target.find('td[name="data"]').text();
+		            var causale = target.find('td[name="causale"]').text();
+		            var valore = target.find('td[name="valore"]').text();
+					target.find('td[name="data"]').html('<input name="data" value="' + data + '">');
+					target.find('td[name="causale"]').html('<input name="causale" value="' + causale + '">');
+					target.find('td[name="valore"]').html('<input name="valore" value="' + valore + '">');
+					$(this).css("display", "none");
+					$(target.find('button[name="saveItem"]')).css("display", "inline");
+		        });
+		        $('button[name="saveItem"]').click(function(event) {
+		            event.preventDefault();
+		            var data = 'saveItem=' + $(this).val();
+		            var target = $('tr[name="' + $(this).val() + '"]');
+		            data += '&data=' + target.find('input[name="data"]').val();
+		            data += '&causale=' + target.find('input[name="causale"]').val();
+		            data += '&valore=' + target.find('input[name="valore"]').val();
+		            $.post('/transactions/save', data).done(function() {
+		                location.reload()
+		            });
+		        });
+		    });
+	</script>
+</head>
+<body>
+<header class="header-section blur-image" data-src="bg.jpg">
+  <div class="full-image">
+   <div>
+   <div class="userbar">
+  <p style="FONT-WEIGHT: 200;margin: 10px 20px;font-size: 24px;display: inline-block;" th:text="${username}"></p>
+	<a href="/logout" class="button3 logout">Logout</a>
+   </div>
+		<div class="center">
+		
+			<h1>Lista delle transazioni</h1>
+			<table border="1">
+			<tr>
+				<td>Data</td>
+				<td>Causale</td>
+				<td>Valore</td>
+			</tr>
+				<th:block th:each="transaction : ${list}">
+					<tr th:name="${transaction.id}">
+						<td name="data" th:text="${transaction.data}">...</td>
+						<td name="causale" th:text="${transaction.causale}">...</td>
+						<td name="valore" th:text="${transaction.valore}">...</td>
+						<td>
+						  <button type="button" name="editItem" th:value="${transaction.id}">Edit</button>
+						  <button type="button" name="saveItem" style="display:none;" th:value="${transaction.id}">Save</button>
+						  <button type="button" name="removeItem" th:value="${transaction.id}">Remove item</button>
+						</td>
+					</tr>
+				</th:block>
+				<tr name="new" style="display:none;">
+				    <td> <input name="data" placeholder="YYYY-MM-DD"></td>
+    				<td> <input name="causale" placeholder="Causale"></td>
+    				<td> <input name="valore" placeholder="Valore (00.00)"></td>
+    				<td>
+    				<button type="button" name="addItem">Add</button>
+    				</td>
+				</tr>
+				<tr>
+					<td colspan="2">Totale: </td>
+					<td th:text="${balance}"></td> 
+					<td>
+   					<button type="button" name="addItem2">Add item</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="but">
+			<div class="center">
+				<a href="/" class="button3 center">Homepage</a>
+			</div>
+		</div>
+	</div>
+  </div>
+</header>
+
+</body>
+</html>
