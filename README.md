@@ -1,3 +1,4 @@
+
 # Personal Ledger
 Il nostro progetto **Personal Ledger** prevede la creazione di una _web application_ per il rendiconto delle entrate e delle uscite di ogni utente.
 L’utente finale potrà registrarsi (o fare il login) tramite una _pagina web_, per poi interagire con un suo bilancio personale contenente entrate e uscite. 
@@ -15,3 +16,4 @@ Durante lo sviluppo del progetto ci siamo accorti che l'utilizzo del Pattern Com
 
 ### Data Access Object (DAO) Pattern
 Dato l'utilizzo di Hibernate per la comunicazione con il database contenente i dati relativi alle transazioni di ogni utente, abbiamo scelto il DAO Pattern per separare la comunicazione con il database tramite linguaggio per Query dal codice java, tramite l'utilizzo dell'API delle classi TransactionDAO e UserDAO.
+
